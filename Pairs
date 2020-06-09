@@ -1,0 +1,73 @@
+#!/bin/python3
+import math
+import os
+import random
+import re
+import sys
+from collections import Counter
+#Complete the sockMerchant function below.
+def sockMerchant(n, ar):
+    #print(set(ar))
+    #return sum([ar.count(value)//2 for value in set(ar)])
+    return sum(map(lambda x: ar.count(x) // 2, set(ar)))
+#import sys
+#n = int(input().strip())
+'''from itertools import groupby
+#n = int(raw_input())
+#c = map(int, raw_input().split())
+def sockMerchant(n, ar):
+    ans = 0
+    #for val in [len(list(group)) for key, group in groupby(sorted(ar))]:
+    print(sorted(ar))
+    for key, group in groupby(sorted(ar)):
+        print(key)
+        print(list(group))
+        #print(list(groupby(sorted(ar))))
+        #ans = ans + int(val/2)
+    return ans
+
+def sockMerchant(n, ar):
+    c = map(ar.split(' '))
+    tot = 0
+    d = {}
+    for i in range(n):
+        if c[i] in d:
+            d.pop(c[i])
+            tot += 1
+        else:
+            d[c[i]] = 1
+    return tot'''    
+'''   tum = [] 
+    for j in range(n):
+        num = [] 
+        for i in range(n): 
+            if(ar[i]==ar[j]):
+                num.append(1) 
+            else:
+                num.append(0)
+        if (sum(num)>1):
+            tum.append((sum(num)//2)/sum(num))
+        else:
+            tum.append(0)
+    return(round(sum(tum)))'''
+    
+'''def sockMerchant(n, ar):
+    sum=0
+    for values in Counter(ar).values():
+        sum+=values//2
+        print(values)
+    return sum'''
+
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input())
+
+    ar = list(map(int, input().rstrip().split()))
+
+    result = sockMerchant(n, ar)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
